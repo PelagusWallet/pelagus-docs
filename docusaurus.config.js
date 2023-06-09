@@ -38,12 +38,6 @@ const config = {
 					// Remove this to remove the "edit this page" links.
 					editUrl: 'https://github.com/PelagusWallet/pelagus-docs',
 				},
-				blog: {
-					showReadingTime: true,
-					// Please change this to your repo.
-					// Remove this to remove the "edit this page" links.
-					editUrl: 'https://github.com/PelagusWallet/pelagus-docs',
-				},
 				theme: {
 					customCss: require.resolve('./src/css/custom.css'),
 				},
@@ -64,11 +58,11 @@ const config = {
 				items: [
 					{
 						type: 'docSidebar',
-						sidebarId: 'tutorialSidebar',
+						sidebarId: 'developSidebar',
 						position: 'left',
-						label: 'Tutorial',
+						label: 'Develop',
 					},
-					// { to: '/blog', label: 'Blog', position: 'left' },
+					{ type: 'docSidebar', sidebarId: 'walletSidebar', position: 'left', label: 'Wallet' },
 					{
 						href: 'https://github.com/PelagusWallet/pelagus-docs',
 						label: 'GitHub',
@@ -83,8 +77,12 @@ const config = {
 						title: 'Docs',
 						items: [
 							{
-								label: 'Tutorial',
+								label: 'Develop',
 								to: '/docs/intro',
+							},
+							{
+								label: 'Wallet',
+								to: '/wallet/intro',
 							},
 						],
 					},
@@ -108,10 +106,6 @@ const config = {
 					{
 						title: 'More',
 						items: [
-							// {
-							// 	label: 'Blog',
-							// 	to: '/blog',
-							// },
 							{
 								label: 'GitHub',
 								href: 'https://github.com/PelagusWallet/pelagus-docs',
