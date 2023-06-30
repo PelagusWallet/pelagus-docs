@@ -8,36 +8,76 @@ type FeatureItem = {
 	description: JSX.Element;
 };
 
+type DocItem = {
+	title: string;
+	description: JSX.Element;
+	link: string;
+};
+
 const FeatureList: FeatureItem[] = [
 	{
-		title: 'Easy to Use',
+		title: '🖼️ Open-Source',
 		// Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
 		description: (
 			<>
-				Docusaurus was designed from the ground up to be easily installed and used to get your website up and
-				running quickly.
+				All code used in the Pelagus Wallet extension is completely open-source on Github. Open-source
+				developers can review and suggest improvements to any and all aspects of the Pelagus codebase.
 			</>
 		),
 	},
 	{
-		title: 'Focus on What Matters',
+		title: '🏡 Quai Native',
 		// Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
 		description: (
 			<>
-				Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go ahead and move your docs into
-				the <code>docs</code> directory.
+				The Pelagus Wallet extension has been designed specifically for use on Quai Network's unique
+				multi-chain infrastructure.
 			</>
 		),
 	},
 	{
-		title: 'Powered by React',
+		title: '💻 Developer Centric',
 		// Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
 		description: (
 			<>
-				Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the
-				same header and footer.
+				The Pelagus extension is built for developers, by developers. Featuring packaged providers,
+				streamlined APIs, and smart transaction routing, integrating a wallet into your Dapp has never been
+				easier.
 			</>
 		),
+	},
+];
+
+const DocsList: DocItem[] = [
+	{
+		title: 'Use Pelagus',
+		// Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+		description: (
+			<>
+				Follow step by step tutorials on how to install, use, and interact with Quai Network with the Pelagus
+				Extension.{' '}
+			</>
+		),
+		link: 'https://docs.pelagus.io/quick-start',
+	},
+	{
+		title: 'Integrate Pelagus',
+		// Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+		description: (
+			<>Get Pelagus integrated into your application quickly using pre-built components and methods.</>
+		),
+		link: 'https://docs.pelagus.io/guides',
+	},
+	{
+		title: 'Pelagus APIs',
+		// Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+		description: (
+			<>
+				Use the full functionality of Pelagus to build powerful applications that leverage the power and speed
+				of Quai Network.
+			</>
+		),
+		link: 'https://docs.pelagus.io/api-reference',
 	},
 ];
 
@@ -47,7 +87,7 @@ function Feature({ title, description }: FeatureItem) {
 			{/* <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div> */}
-			<div className='padding-horiz--md'>
+			<div className={styles.featureCard}>
 				<h3>{title}</h3>
 				<p>{description}</p>
 			</div>
@@ -55,13 +95,36 @@ function Feature({ title, description }: FeatureItem) {
 	);
 }
 
+function DocFeature({ title, description, link }: DocItem) {
+	return (
+		<a className={`col col--4 ${styles.docFeatures}`} href={link}>
+			{/* <div className="text--center">
+		<Svg className={styles.featureSvg} role="img" />
+	  </div> */}
+			<div className={styles.docFeatureCard}>
+				<h3>{title}</h3>
+				<p>{description}</p>
+			</div>
+		</a>
+	);
+}
+
 export default function HomepageFeatures(): JSX.Element {
 	return (
 		<section className={styles.features}>
 			<div className='container'>
+				<h2>Pelagus At A Glance</h2>
 				<div className='row'>
 					{FeatureList.map((props, idx) => (
 						<Feature key={idx} {...props} />
+					))}
+				</div>
+			</div>
+			<div className='container'>
+				<h2>Get Started</h2>
+				<div className='row'>
+					{DocsList.map((props, idx) => (
+						<DocFeature key={idx} {...props} />
 					))}
 				</div>
 			</div>

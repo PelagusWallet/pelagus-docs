@@ -1,11 +1,47 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 2rem 0;
+	width: 100%;
+	flex-direction: column;
+	gap: 3rem;
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+	height: 200px;
+	width: 200px;
+}
+
+.featureCard {
+	border-radius: 1rem;
+	background-color: var(--ifm-color-emphasis-100);
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+	padding: 4%;
+	height: 100%;
+}
+
+[data-theme='dark'] .featureCard {
+	box-shadow: 4px 4px 4px rgba(255, 255, 255, 0.05);
+	background-color: var(--ifm-color-emphasis-200);
+}
+
+.docFeatures {
+	text-decoration: none;
+	color: var(--ifm-font-color-base);
+}
+
+.docFeatures:hover {
+	text-decoration: none;
+	color: var(--ifm-font-color-base);
+}
+
+.docFeatureCard {
+	border-radius: 1rem;
+	border: 1px solid var(--ifm-color-emphasis-300);
+	padding: 4%;
+	height: 100%;
+}
+
+.docFeatureCard:hover {
+	border: 1px solid var(--ifm-color-primary);
 }

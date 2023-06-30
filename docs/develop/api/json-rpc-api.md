@@ -4,12 +4,12 @@ title: JSON-RPC API
 description: Reference for the Pelagus JSON-RPC API.
 ---
 
-Pelagus uses the `window.quai.request(args)` method to wrap a JSON-RPC API. The API currently contains only Pelagus specific methods. The API is exposed to the browser via the `window.quai` object.
+Pelagus uses the [`window.quai.request(args)`](quai-provider.md/#windowquairequestargs) method to wrap a JSON-RPC API. The API currently contains only Pelagus specific methods. The API is exposed to the browser via the `window.quai` object.
 
 Pelagus supports two distinct request types:
 
 - **Unrestricted** - These methods are [unrestricted](#unrestricted-methods) and can be called without requesting permissions.
-- **Restricted** - These methods are [restricted](#restricted-methods) which requires requesting permissions using the [`wallet_requestPermissions`](#wallet_request_permissions) method before they can be called.
+- **Restricted** - These methods are [restricted](#restricted-methods) which requires requesting permissions using the [`wallet_requestPermissions`](#wallet_requestpermissions) method before they can be called.
 
 :::note
 All RPC method requests and return an error.
@@ -101,7 +101,7 @@ function requestPermissions() {
 
 ## Restricted Methods
 
-Pelagus follows the wallet permissions system outlined in [EIP-2255](https://eips.ethereum.org/EIPS/eip-2255). To call a restricted method, you must first request permission from the user using the [`wallet_requestPermissions`](#wallet_request_permissions) method. Permissions are returned as JSON objects with the following structure:
+Pelagus follows the wallet permissions system outlined in [EIP-2255](https://eips.ethereum.org/EIPS/eip-2255). To call a restricted method, you must first request permission from the user using the [`wallet_requestPermissions`](#wallet_requestpermissions) method. Permissions are returned as JSON objects with the following structure:
 
 ```json
 {
@@ -117,7 +117,7 @@ After requesting and recieving permissions from the user, your application can c
 `quai_requestAccounts` requests the user provide an array of one Quai address per shard to be identified by. This method is specified by a modified version of [EIP-1102](https://eips.ethereum.org/EIPS/eip-1102).
 
 :::info
-Calling this method inherently relies on the [`wallet_requestPermisssions`](#wallet_request_permissions) method to grant permission to access a user's accounts.
+Calling this method inherently relies on the [`wallet_requestPermisssions`](#wallet_requestpermissions) method to grant permission to access a user's accounts.
 :::
 
 #### Returns
