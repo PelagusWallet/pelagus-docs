@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/github')
+const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -90,15 +90,32 @@ const config = {
 				style: 'dark',
 				links: [
 					{
-						title: 'Docs',
+						title: 'Wallet',
 						items: [
 							{
-								label: 'Develop',
+								label: 'Introduction',
+								to: 'docs/wallet/intro',
+							},
+							{
+								label: 'Using Pelagus',
+								to: 'docs/category/using-pelagus',
+							},
+						],
+					},
+					{
+						title: 'Develop',
+						items: [
+							{
+								label: 'Introduction',
 								to: '/docs/develop/intro',
 							},
 							{
-								label: 'Wallet',
-								to: 'docs/wallet/intro/what-is-pelagus',
+								label: 'Getting Started',
+								to: 'docs/category/getting-started',
+							},
+							{
+								label: 'How To',
+								to: 'docs/category/how-to',
 							},
 						],
 					},
@@ -111,7 +128,7 @@ const config = {
 							},
 							{
 								label: 'Discord',
-								href: 'https://discord.gg/smXEUK8WXb',
+								href: 'https://discord.gg/EDkfZtZpDp',
 							},
 							{
 								label: 'Twitter',
@@ -141,6 +158,7 @@ const config = {
 					alt: 'Pelagus',
 					src: 'img/PelagusLogoHorizontalWhite.png',
 					srcDark: 'img/PelagusLogoHorizontalWhite.png',
+					href: 'https://pelaguswallet.io',
 					width: 180,
 				},
 				copyright: `Copyright © ${new Date().getFullYear()} Pelagus Wallet`,
@@ -150,6 +168,6 @@ const config = {
 				darkTheme: darkCodeTheme,
 			},
 		}),
-};
+}
 
-module.exports = config;
+module.exports = config

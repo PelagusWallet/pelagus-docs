@@ -5,7 +5,7 @@ title: Introduction
 
 # Introduction
 
-![Using Pelagus Wallet](/img/PelagusWalletDemo2.gif)
+![Using Pelagus Wallet](/img/PelagusDisplay.png)
 
 ## Quai Network
 
@@ -21,4 +21,6 @@ Pelagus is developed and maintained by the Pelagus team, with input and contribu
 
 ### Features
 
-
+- **Smart Transaction Routing**: Send transactions to and from **any shard within Quai Network** without having to worry about the chain you're sending to or gas estimation.
+- **Multi-Chain Account Management**: Easily manage **multiple accounts** across **multiple chains** within Quai Network in single location.
+- **Tokens and NFTs**: *Securely store and send* your QRC20 tokens and NFTs in Pelagus Wallet.
