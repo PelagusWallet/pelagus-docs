@@ -6,11 +6,13 @@ description: Learn how to request and handle user accounts.
 
 Within Quai Network, user accounts are the fundamental building block of the network. They act as an abstracted form of identification, to sign transactions and messages, and interact with applications.
 
-To initiate a transaction or message signature, your application must have access to a user's accounts. This permission can be requested using the [`eth_requestAccounts`](../api/json-rpc-api.md#eth_request_accounts) method.
+Quai Network utilizes a **sharded address space** across its multi-chain network. A user's address is not only a unique identifier, but also a mapping of the shard that the user is interacting with. **Knowledge of the shard a user is on is essential** for your application and orchestrating how your users interact with the network. More information on Quai's sharded address space can be found in the [Quai Network Docs](https://docs.quai.network/advanced-introduction/hierarchical-structure/sharding#sharded-address-space).
+
+Pelagus handles Quai accounts via an **account based representation of each address with its corresponding shard**. Wallets may have multiple accounts, each with a unique address that maps to a specific shard in the network. When a user changes their "account" in the context of the wallet or your application, it typically means that they are **changing the both the shard and address** that they are connected with. This is important to note when handling accounts within your application.
 
 ## Requesting Accounts
 
-Applications should only prompt a user to grant access to their accounts **following a direct user action**, such as _click a connect button_. This prevents your application from spamming users with permission requests.
+To initiate a transaction or message signature, your application must have access to a user's accounts. Applications should only prompt a user to grant access to their accounts **following a direct user action**, such as _click a connect button_. This prevents your application from spamming users with permission requests.
 
 Pelagus has two methods of requesting user accounts:
 
@@ -19,7 +21,7 @@ Pelagus has two methods of requesting user accounts:
 
 ## Handling Accounts
 
-Pelagus will always return an array that contains the address of the shard the user is currently connected with. Because Pelagus returns no information regarding the shard that the address maps to, it is useful to import the `getShardFromAddress` method from the [`quais`](https://www.npmjs.com/package/quais) SDK.
+Pelagus will always return an array that contains the address of the shard the user is currently connected with. Because Pelagus returns no information regarding the shard that the address maps to, it can be useful to import the `getShardFromAddress` method from the [`quais`](https://www.npmjs.com/package/quais) SDK in order to derive the shard the address is on.
 
 An example of address shard determination:
 

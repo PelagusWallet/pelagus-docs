@@ -23,7 +23,7 @@ export default const SignButton = () => {
 	const message = 'hello pelagus';
 
 	const signMessage = async () => {
-		await window.quai
+		await window.ethereum
 			.request({
 				method: 'personal_sign',
 				params: [message, accounts[0]],

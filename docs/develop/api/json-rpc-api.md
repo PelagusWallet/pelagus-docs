@@ -4,7 +4,7 @@ title: JSON-RPC API
 description: Reference for the Pelagus JSON-RPC API.
 ---
 
-Pelagus uses the [`window.ethereum.request(args)`](quai-provider.md/#windowquairequestargs) method to wrap a JSON-RPC API. The API currently contains only Pelagus specific methods. The API is exposed to the browser via the `window.ethereum` object.
+Pelagus uses the [`window.ethereum.request(args)`](quai-provider.md/#windowquairequestargs) method to wrap a JSON-RPC API. The API contains both the standard Ethereum JSON-RPC API methods Pelagus specific methods. The API is exposed to the browser via the `window.ethereum` object.
 
 Pelagus supports the following API methods:
 
@@ -13,6 +13,8 @@ Pelagus supports the following API methods:
 - [eth_sendTransaction](#eth_sendtransaction)
 - [personal_sign](#personal_sign)
 - [eth_signTypedData_v4](#eth_signtypeddata_v4)
+- [eth_chainId](#eth_chainid)
+- [net_version](#net_version)
 
 :::tip
 **RPC method requests may return an error**.
@@ -282,3 +284,59 @@ const signTypedData = async () => {
 #### Return
 
 `eth_signTypedData_v4` returns a promise that resolves to the signature's hexadecimal string.
+
+
+### eth_chainId
+
+The `eth_chainId` method returns the current chain ID.
+
+#### Params
+
+`eth_chainId` does not require any parameters.
+
+#### Example
+
+```js
+const getChainId = async () => {
+	await window.ethereum
+		.request({ method: 'eth_chainId' })
+		.then((chainId) => {
+			console.log('Chain ID:', chainId)
+		})
+		.catch((error) => {
+			console.error(error)
+		})
+}
+```
+
+#### Return
+
+`eth_chainId` returns a promise that resolves to the integer chain ID.
+
+### net_version
+
+The `net_version` method returns the current network ID.
+
+#### Params
+
+`net_version` does not require any parameters.
+
+#### Example
+
+```js
+const getNetworkId = async () => {
+	await window.ethereum
+		.request({ method: 'net_version' })
+		.then((networkId) => {
+			console.log('Network ID:', networkId)
+		})
+		.catch((error) => {
+			console.error(error)
+		})
+}
+```
+
+#### Return
+
+`net_version` returns a promise that resolves to the integer network ID.
+
