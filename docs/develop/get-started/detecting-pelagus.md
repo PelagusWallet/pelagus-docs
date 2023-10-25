@@ -8,7 +8,7 @@ description: Detect Pelagus in your browser and application.
 
 Pelagus can be detected by checking for the provider label in the `window.ethereum` object.
 
-The `window.ethereum` is injected into the browser by a number of other wallets. You must check the provider label to ensure that Pelagus is present. You can verify that `window.ethereum` object has been injected into the browser and the provider label is Pelagus by running the following in the developer console of your browser:
+The `window.ethereum` is injected into the browser by a number of other wallets. You must check the provider label to ensure that Pelagus is present. You can verify that the `window.ethereum` object has been injected into the browser and the provider label is Pelagus by running the following in the developer console of your browser:
 
 ```js
 await window.ethereum.isPelagus
@@ -24,7 +24,7 @@ If Pelagus is not present in the browser, this will return `undefined`.
 
 ## Application
 
-Inside of your application, you may want to differentiate between Pelagus and other quai based wallets. Verify that the provider is Pelagus by checking the provider name:
+Inside of your application, you may want to differentiate between Pelagus and other Quai-based wallets. Verify that the provider is Pelagus by checking the provider name:
 
 ```js
 function detectPelagus() {

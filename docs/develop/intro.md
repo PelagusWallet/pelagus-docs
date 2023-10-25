@@ -19,4 +19,4 @@ Pelagus Wallet is currently only available as a browser extension.
 
 ## Community
 
-If you have any questions while building with Pelagus, join the [Pelagus Discord server](https://discord.gg/UUTfPKfRrh) and shoot a message to the Pelagus team or community developers. We're happy to help!
+If you have any questions or issues while building with Pelagus, join the [Pelagus Discord server](https://discord.gg/UUTfPKfRrh) and shoot a message to the Pelagus team or community developers. We're happy to help!
