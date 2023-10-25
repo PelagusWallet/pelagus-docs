@@ -1,70 +1,94 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import React from 'react'
+import Card, { type CardItem } from '../Card/Card'
 
-type FeatureItem = {
-	title: string;
-	// Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-	description: JSX.Element;
-};
-
-const FeatureList: FeatureItem[] = [
+const FeatureList: CardItem[] = [
 	{
-		title: 'Easy to Use',
-		// Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+		title: 'Open-Source',
+		link: 'https://github.com/pelaguswallet',
 		description: (
 			<>
-				Docusaurus was designed from the ground up to be easily installed and used to get your website up and
-				running quickly.
+				Pelagus Wallet extension is completely open-source. Developers can review and suggest improvements to
+				any aspect of the codebase.
 			</>
 		),
 	},
 	{
-		title: 'Focus on What Matters',
-		// Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+		title: 'Quai Native',
+		link: 'https://docs.quai.network/introduction/quai-network',
 		description: (
 			<>
-				Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go ahead and move your docs into
-				the <code>docs</code> directory.
+				The Pelagus Wallet extension has been designed specifically for use on Quai Network's unique
+				multi-chain infrastructure.
 			</>
 		),
 	},
 	{
-		title: 'Powered by React',
-		// Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+		title: 'Developer Centric',
+		link: '/docs/develop/get-started/detecting-pelagus',
+		description: (
+			<>Familiar APIs and smart transaction routing make integrating Pelagus into your application easy.</>
+		),
+	},
+]
+
+const DocList: CardItem[] = [
+	{
+		title: 'Use Pelagus',
+		link: '/docs/wallet/intro',
 		description: (
 			<>
-				Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the
-				same header and footer.
+				Follow step by step tutorials on how to install, use, and interact with Quai Network with the Pelagus
+				Extension.{' '}
 			</>
 		),
 	},
-];
-
-function Feature({ title, description }: FeatureItem) {
-	return (
-		<div className={clsx('col col--4')}>
-			{/* <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div> */}
-			<div className='padding-horiz--md'>
-				<h3>{title}</h3>
-				<p>{description}</p>
-			</div>
-		</div>
-	);
-}
+	{
+		title: 'Integrate Pelagus',
+		link: '/docs/category/getting-started',
+		description: (
+			<>Get Pelagus integrated into your application quickly using pre-built components and methods.</>
+		),
+	},
+	{
+		title: 'Pelagus APIs',
+		link: '/docs/category/api-reference',
+		description: (
+			<>
+				Use the full functionality of Pelagus to build powerful applications that leverage the power and speed
+				of Quai Network.
+			</>
+		),
+	},
+]
 
 export default function HomepageFeatures(): JSX.Element {
 	return (
-		<section className={styles.features}>
-			<div className='container'>
-				<div className='row'>
-					{FeatureList.map((props, idx) => (
-						<Feature key={idx} {...props} />
-					))}
+		<div style={{ display: 'flex', flexDirection: 'column' }}>
+			<section className='container margin-top--lg margin-bottom--lg'>
+				<h2></h2>
+				<div className='container'>
+					<div className='row'>
+						{FeatureList.map((props, idx) => (
+							<Card
+								key={idx}
+								{...props}
+							/>
+						))}
+					</div>
 				</div>
-			</div>
-		</section>
-	);
+			</section>
+			<section className='container margin-top--lg margin-bottom--lg'>
+				<div className='container'>
+					<div className='row'>
+						{DocList.map((props, idx) => (
+							<Card
+								key={idx}
+								{...props}
+							/>
+						))}
+					</div>
+				</div>
+			</section>
+		</div>
+	)
 }

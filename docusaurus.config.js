@@ -1,27 +1,20 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/github')
+const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-	title: 'Pelagus Developer Documentation',
+	title: 'Pelagus Documentation',
 	tagline: 'Embark on Web3',
 	favicon: 'img/favicon.ico',
-
-	// Set the production url of your site here
-	url: 'https://your-docusaurus-test-site.com',
-	// Set the /<baseUrl>/ pathname under which your site is served
-	// For GitHub pages deployment, it is often '/<projectName>/'
+	url: 'https://your-docusaurus-test-site.com', // Set the production url of your site here
 	baseUrl: '/',
-
+	organizationName: 'PelagusWallet',
+	projectName: 'PelagusWallet',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
-
-	// Even if you don't use internalization, you can use this field to set useful
-	// metadata like html lang. For example, if your site is Chinese, you may want
-	// to replace "en" with "zh-Hans".
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en'],
@@ -34,15 +27,15 @@ const config = {
 			({
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
-					// Please change this to your repo.
-					// Remove this to remove the "edit this page" links.
-					editUrl: 'https://github.com/PelagusWallet/pelagus-docs',
-				},
-				blog: {
-					showReadingTime: true,
-					// Please change this to your repo.
-					// Remove this to remove the "edit this page" links.
-					editUrl: 'https://github.com/PelagusWallet/pelagus-docs',
+					editUrl: 'https://github.com/PelagusWallet/pelagus-docs/tree/main/',
+					versions: {
+						current: {
+							label: 'current',
+						},
+					},
+					lastVersion: 'current',
+					showLastUpdateAuthor: true,
+					showLastUpdateTime: true,
 				},
 				theme: {
 					customCss: require.resolve('./src/css/custom.css'),
@@ -56,35 +49,73 @@ const config = {
 		({
 			image: 'img/PelagusBanner.jpg',
 			navbar: {
+				hideOnScroll: true,
 				title: 'Pelagus',
 				logo: {
 					alt: 'Pelagus Logo',
 					src: 'img/PelagusLogoSquare.png',
+					srcDark: 'img/PelagusLogoSquare.png',
 				},
 				items: [
+					// left
+					{ type: 'docSidebar', sidebarId: 'walletSidebar', position: 'left', label: 'Wallet' },
 					{
 						type: 'docSidebar',
-						sidebarId: 'tutorialSidebar',
+						sidebarId: 'developSidebar',
 						position: 'left',
-						label: 'Tutorial',
+						label: 'Develop',
 					},
-					// { to: '/blog', label: 'Blog', position: 'left' },
+					// right
 					{
 						href: 'https://github.com/PelagusWallet/pelagus-docs',
-						label: 'GitHub',
 						position: 'right',
+						className: 'header-github-link',
 					},
+					// { Include this when versioning is set up
+					// 	type: 'docsVersionDropdown',
+					// 	position: 'right',
+					// },
 				],
+			},
+			colorMode: {
+				defaultMode: 'light',
+				disableSwitch: false,
+				respectPrefersColorScheme: true,
+			},
+			announcementBar: {
+				content:
+					'If you like Pelagus, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/PelagusWallet/pelagus-extension">GitHub</a>!',
 			},
 			footer: {
 				style: 'dark',
 				links: [
 					{
-						title: 'Docs',
+						title: 'Wallet',
 						items: [
 							{
-								label: 'Tutorial',
-								to: '/docs/intro',
+								label: 'Introduction',
+								to: 'docs/wallet/intro',
+							},
+							{
+								label: 'Using Pelagus',
+								to: 'docs/category/using-pelagus',
+							},
+						],
+					},
+					{
+						title: 'Develop',
+						items: [
+							{
+								label: 'Introduction',
+								to: '/docs/develop/intro',
+							},
+							{
+								label: 'Getting Started',
+								to: 'docs/category/getting-started',
+							},
+							{
+								label: 'How To',
+								to: 'docs/category/how-to',
 							},
 						],
 					},
@@ -97,7 +128,7 @@ const config = {
 							},
 							{
 								label: 'Discord',
-								href: 'https://discord.gg/quai',
+								href: 'https://discord.gg/EDkfZtZpDp',
 							},
 							{
 								label: 'Twitter',
@@ -108,17 +139,28 @@ const config = {
 					{
 						title: 'More',
 						items: [
-							// {
-							// 	label: 'Blog',
-							// 	to: '/blog',
-							// },
 							{
-								label: 'GitHub',
+								label: 'Website',
+								href: 'https://pelaguswallet.io',
+							},
+							{
+								label: 'Docs GitHub',
 								href: 'https://github.com/PelagusWallet/pelagus-docs',
+							},
+							{
+								label: 'Wallet Repo',
+								href: 'https://github.com/PelagusWallet/pelagus-wallet',
 							},
 						],
 					},
 				],
+				logo: {
+					alt: 'Pelagus',
+					src: 'img/PelagusLogoHorizontalWhite.png',
+					srcDark: 'img/PelagusLogoHorizontalWhite.png',
+					href: 'https://pelaguswallet.io',
+					width: 180,
+				},
 				copyright: `Copyright © ${new Date().getFullYear()} Pelagus Wallet`,
 			},
 			prism: {
@@ -126,6 +168,6 @@ const config = {
 				darkTheme: darkCodeTheme,
 			},
 		}),
-};
+}
 
-module.exports = config;
+module.exports = config
