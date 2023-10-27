@@ -14,7 +14,7 @@ const FeatureList: CardItem[] = [
 	},
 	{
 		title: 'Quai Native',
-		link: 'https://docs.quai.network/introduction/quai-network',
+		link: 'https:/.quai.network/introduction/quai-network',
 		description: (
 			<>
 				The Pelagus Wallet extension has been designed specifically for use on Quai Network's unique
@@ -24,7 +24,7 @@ const FeatureList: CardItem[] = [
 	},
 	{
 		title: 'Developer Centric',
-		link: '/docs/develop/get-started/detecting-pelagus',
+		link: '/develop/get-started/detecting-pelagus',
 		description: (
 			<>Familiar APIs and smart transaction routing make integrating Pelagus into your application easy.</>
 		),
@@ -34,7 +34,7 @@ const FeatureList: CardItem[] = [
 const DocList: CardItem[] = [
 	{
 		title: 'Use Pelagus',
-		link: '/docs/wallet/intro',
+		link: '/wallet/intro',
 		description: (
 			<>
 				Follow step by step tutorials on how to install, use, and interact with Quai Network with the Pelagus
@@ -44,14 +44,14 @@ const DocList: CardItem[] = [
 	},
 	{
 		title: 'Integrate Pelagus',
-		link: '/docs/category/getting-started',
+		link: '/category/getting-started',
 		description: (
 			<>Get Pelagus integrated into your application quickly using pre-built components and methods.</>
 		),
 	},
 	{
 		title: 'Pelagus APIs',
-		link: '/docs/category/api-reference',
+		link: '/category/api-reference',
 		description: (
 			<>
 				Use the full functionality of Pelagus to build powerful applications that leverage the power and speed

@@ -9,8 +9,8 @@ const config = {
 	title: 'Pelagus Documentation',
 	tagline: 'Embark on Web3',
 	favicon: 'img/favicon.ico',
-	url: 'https://your-docusaurus-test-site.com', // Set the production url of your site here
-	baseUrl: '/',
+	url: 'https://pelaguswallet.io', // Set the production url of your site here
+	baseUrl: '/docs/',
 	organizationName: 'PelagusWallet',
 	projectName: 'PelagusWallet',
 	onBrokenLinks: 'throw',
@@ -26,6 +26,7 @@ const config = {
 			/** @type {import('@docusaurus/preset-classic').Options} */
 			({
 				docs: {
+					routeBasePath: '/',
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/PelagusWallet/pelagus-docs/tree/main/',
 					versions: {
@@ -94,11 +95,11 @@ const config = {
 						items: [
 							{
 								label: 'Introduction',
-								to: 'docs/wallet/intro',
+								to: 'wallet/intro',
 							},
 							{
 								label: 'Using Pelagus',
-								to: 'docs/category/using-pelagus',
+								to: 'category/using-pelagus',
 							},
 						],
 					},
@@ -107,15 +108,15 @@ const config = {
 						items: [
 							{
 								label: 'Introduction',
-								to: '/docs/develop/intro',
+								to: 'develop/intro',
 							},
 							{
 								label: 'Getting Started',
-								to: 'docs/category/getting-started',
+								to: 'category/getting-started',
 							},
 							{
 								label: 'How To',
-								to: 'docs/category/how-to',
+								to: 'category/how-to',
 							},
 						],
 					},
