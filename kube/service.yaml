@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/backend-config: '{"default":"pelagus-docs"}'
+  labels:
+    app: pelagus-docs
+  name: pelagus-docs
+  namespace: quai-prod
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    name: http
+    targetPort: 80
+  selector:
+    app: pelagus-docs
+  sessionAffinity: None
+  type: ClusterIP
+
