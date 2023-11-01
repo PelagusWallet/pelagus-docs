@@ -1,5 +1,4 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github')
 const darkCodeTheme = require('prism-react-renderer/themes/dracula')
@@ -9,7 +8,7 @@ const config = {
 	title: 'Pelagus Documentation',
 	tagline: 'Embark on Web3',
 	favicon: 'img/favicon.ico',
-	url: 'https://pelaguswallet.io', // Set the production url of your site here
+	url: 'https://pelaguswallet.io',
 	baseUrl: '/docs/',
 	organizationName: 'PelagusWallet',
 	projectName: 'PelagusWallet',
@@ -49,6 +48,12 @@ const config = {
 		/** @type {import('@docusaurus/preset-classic').ThemeConfig} */
 		({
 			image: 'img/PelagusBanner.jpg',
+			docs: {
+				sidebar: {
+					hideable: true,
+					autoCollapseCategories: false,
+				},
+			},
 			navbar: {
 				hideOnScroll: true,
 				title: 'Pelagus',
@@ -72,11 +77,15 @@ const config = {
 						position: 'right',
 						className: 'header-github-link',
 					},
-					// { Include this when versioning is set up
-					// 	type: 'docsVersionDropdown',
-					// 	position: 'right',
-					// },
 				],
+			},
+			algolia: {
+				// If Algolia did not provide you any appId, use 'BH4D9OD16A'
+				appId: 'LL99M4ITCK',
+				// Public API key: it is safe to commit it
+				apiKey: 'b8311a80d4a87b33f1e934727d58025c',
+				indexName: 'pelaguswallet',
+				insights: true,
 			},
 			colorMode: {
 				defaultMode: 'light',
