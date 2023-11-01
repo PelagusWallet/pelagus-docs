@@ -1,4 +1,3 @@
-import React from 'react'
 import Card, { type CardItem } from '../Card/Card'
 
 const FeatureList: CardItem[] = [
