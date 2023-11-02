@@ -31,7 +31,7 @@ interface RequestArguments {
 window.ethereum.request(args: RequestArguments): Promise<unknown>;
 ```
 
-A list of available methods can be found in the [JSON-RPC API documentation](json-rpc-api.md/#methods). Methods are always of type `string` and are case-sensitive. The `params` property is optional depending on the method called and can be either an array of parameters or an object of named parameters.
+A list of available methods can be found in the [JSON-RPC API documentation](json-rpc-api.md#methods). Methods are always of type `string` and are case-sensitive. The `params` property is optional depending on the method called and can be either an array of parameters or an object of named parameters.
 
 ## Events
 

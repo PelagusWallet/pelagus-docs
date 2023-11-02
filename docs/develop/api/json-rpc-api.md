@@ -4,7 +4,7 @@ title: JSON-RPC API
 description: Reference for the Pelagus JSON-RPC API.
 ---
 
-Pelagus uses the [`window.ethereum.request(args)`](quai-provider.md/#windowethereumrequestargs) method to wrap a JSON-RPC API. The API contains both the standard Ethereum JSON-RPC API methods Pelagus specific methods. The API is exposed to the browser via the `window.ethereum` object.
+Pelagus uses the [`window.ethereum.request(args)`](quai-provider.md#windowethereumrequestargs) method to wrap a JSON-RPC API. The API contains both the standard Ethereum JSON-RPC API methods Pelagus specific methods. The API is exposed to the browser via the `window.ethereum` object.
 
 ## Methods
 
