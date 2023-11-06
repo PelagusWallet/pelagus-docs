@@ -14,6 +14,7 @@ const config = {
 	organizationName: 'PelagusWallet',
 	projectName: 'PelagusWallet',
 	onBrokenLinks: 'throw',
+	trailingSlash: true,
 	onBrokenMarkdownLinks: 'warn',
 	i18n: {
 		defaultLocale: 'en',
