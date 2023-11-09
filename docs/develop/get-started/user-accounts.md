@@ -16,8 +16,8 @@ To initiate a transaction or message signature, your application must have acces
 
 Pelagus has two methods of requesting user accounts:
 
-- [`eth_requestAccounts`](../api/json-rpc-api.md#eth_request_accounts): Requests access to a user's accounts **via an extension pop-up**.
-- [`eth_accounts`](../api/json-rpc-api.md#eth_accounts): Returns an array of accounts owned by the user if **permission has already been granted**.
+- [`quai_requestAccounts`](../api/json-rpc-api.md#quai_requestaccounts): Requests access to a user's accounts **via an extension pop-up**.
+- [`quai_accounts`](../api/json-rpc-api.md#quai_accounts): Returns an array of accounts owned by the user if **permission has already been granted**.
 
 ## Handling Accounts
 
@@ -30,7 +30,7 @@ import { getShardFromAddress } from 'quais/lib/utils'
 
 export const requestAccounts = async () => {
 	await window.ethereum
-		.request({ method: 'eth_requestAccounts' })
+		.request({ method: 'quai_requestAccounts' })
 		.then((accounts) => {
 			const shard = getShardFromAddress(accounts[0])
 			const address = {

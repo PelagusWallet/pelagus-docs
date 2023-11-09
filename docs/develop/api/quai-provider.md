@@ -4,7 +4,7 @@ title: Pelagus Provider API
 description: Reference for the Pelagus Provider API.
 ---
 
-The Pelagus provider API is a global Javascript API injected into the browser by Pelagus. The Pelagus provider and API are accessible via the injected `window.ethereum` object, which allows applications to interface with users through a variety of methods and requests. You can use a combination of the available methods, properties, and events within your application to request user accounts, prompt the signing of messages and transactions, and more.
+The Pelagus provider API is a global Javascript API injected into the browser by the extension. The Pelagus provider and API are accessible via the injected `window.ethereum` object, which allows applications to interface with the users and the network.
 
 ## Properties
 
@@ -14,13 +14,9 @@ The `isPelagus` property indicates whether the injected `window.ethereum` is Pel
 
 ## Methods
 
-:::note
-The Pelagus Provider API is currently under development and is subject to change. A larger set of methods will be available for use in the future.
-:::
-
 ### window.ethereum.request(args)
 
-The `request` method is used to submit RPC API requests to Quai Network using Pelagus. The request returns a promise that resolves to the result of the RPC method call. If the request fails, the promise will reject with an error.
+The `request` method is used to submit RPC API requests to Quai Network using Pelagus. The request returns a `Promise` that resolves to the result of the RPC method call. If the request fails, the promise will reject with an error.
 
 ```js
 interface RequestArguments {
@@ -31,7 +27,9 @@ interface RequestArguments {
 window.ethereum.request(args: RequestArguments): Promise<unknown>;
 ```
 
-A list of available methods can be found in the [JSON-RPC API documentation](json-rpc-api.md#methods). Methods are always of type `string` and are case-sensitive. The `params` property is optional depending on the method called and can be either an array of parameters or an object of named parameters.
+Pelagus natively bundles a subset of the [Quai JSON-RPC API](https://docs.quai.network/develop/apis/json-rpc) methods alongside a set of [Pelagus specific methods](./json-rpc-api.md). Methods are always of type `string` and are case-sensitive. The `params` property is optional depending on the method called and can be either an array of parameters or an object of named parameters.
+
+
 
 ## Events
 
@@ -57,7 +55,7 @@ The `accountsChanged` event is emitted when the currently connected account chan
 window.ethereum.on('accountsChanged', handler: (accounts: Array<string>) => void);
 ```
 
-The `accountsChanged` event returns the value of the `eth_accounts` RPC method upon the account change. eth_accounts returns either an empty array, or an array that contains the addresses of the accounts the caller is permitted to access with the most recently used account first. Callers are identified by their URL origin, which means that all sites with the same origin share the same permissions.
+The `accountsChanged` event returns the value of the `quai_accounts` RPC method upon the account change. `quai_accounts` returns either an empty array, or an array that contains the addresses of the accounts the caller is permitted to access with the most recently used account first. Callers are identified by their URL origin, which means that all sites with the same origin share the same permissions.
 
 ## Errors
 

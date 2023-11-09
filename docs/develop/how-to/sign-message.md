@@ -6,11 +6,11 @@ description: Sign messages and data using with Pelagus.
 
 ## Methods
 
-Pelagus supports [`eth_signTypedData_v4`](../api/json-rpc-api.md#eth_signtypeddata_v4) and [`personal_sign`](../api/json-rpc-api.md#personal_sign) for signing messages.
+Pelagus supports [`quai_signTypedData_v4`](../api/json-rpc-api.md#quai_signtypeddata_v4) and [`personal_sign`](../api/json-rpc-api.md#personal_sign) for signing messages.
 
-### eth_signTypedData_v4
+### quai_signTypedData_v4
 
-[`eth_signTypedData_v4`](../api/json-rpc-api.md#eth_signtypeddata_v4) provides a **cheap and human readable** way to sign and verify messages on chain. It should be used if the data you are presenting to the user is complex and needs to be efficiently processed on-chain.
+[`quai_signTypedData_v4`](../api/json-rpc-api.md#quai_signtypeddata_v4) provides a **cheap and human readable** way to sign and verify messages on chain. It should be used if the data you are presenting to the user is complex and needs to be efficiently processed on-chain.
 
 ### personal_sign
 
