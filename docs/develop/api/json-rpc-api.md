@@ -4,41 +4,45 @@ title: JSON-RPC API
 description: Reference for the Pelagus JSON-RPC API.
 ---
 
-Pelagus uses the [`window.ethereum.request(args)`](quai-provider.md#windowethereumrequestargs) method to wrap a JSON-RPC API. The API contains both the standard Ethereum JSON-RPC API methods Pelagus specific methods. The API is exposed to the browser via the `window.ethereum` object.
+Pelagus uses the [`window.ethereum.request(args)`](quai-provider.md#windowethereumrequestargs) method to wrap a JSON-RPC API. The API contains both the standard Quai JSON-RPC API methods Pelagus specific methods. The API is exposed to the browser via the `window.ethereum` object.
 
 ## Methods
 
-## Methods
+Pelagus supports the following Pelagus specific API methods:
 
-Pelagus supports the following API methods:
-
-- [eth_requestAccounts](#eth_requestaccounts)
-- [eth_accounts](#eth_accounts)
-- [eth_sendTransaction](#eth_sendtransaction)
+- [quai_requestAccounts](#quai_requestaccounts)
+- [quai_accounts](#quai_accounts)
+- [quai_sendTransaction](#quai_sendtransaction)
 - [personal_sign](#personal_sign)
-- [eth_signTypedData_v4](#eth_signtypeddata_v4)
-- [eth_chainId](#eth_chainid)
-- [net_version](#net_version)
+- [quai_signTypedData_v4](#quai_signtypeddata_v4)
+
+Pelagus also supports most standard Quai JSON-RPC API methods. For a full list of supported methods, see the [Quai JSON-RPC API documentation](https://docs.quai.network/develop/apis/json-rpc). Relevant supported methods include:
+
+- [quai_chainId](https://docs.quai.network/develop/apis/json-rpc#quai_chainid)
+- [quai_getBalance](https://docs.quai.network/develop/apis/json-rpc#quai_getbalance)
+- [quai_getTransactionCount](https://docs.quai.network/develop/apis/json-rpc#quai_gettransactioncount)
+- [quai_getBlockByNumber](https://docs.quai.network/develop/apis/json-rpc#quai_getblockbynumber)
+- [quai_getBlockByHash](https://docs.quai.network/develop/apis/json-rpc#quai_getblockbyhash)
 
 :::tip
 **RPC method requests may return an error**.
 Make sure to handle errors for every request.
 :::
 
-### eth_requestAccounts
+### quai_requestAccounts
 
-The `eth_requestAccounts` method **initiates an extension pop-up** that prompts the user to provide your application access to their current account. This method is specified by [EIP-1102](https://eips.ethereum.org/EIPS/eip-1102).
+The `quai_requestAccounts` method **initiates an extension pop-up** that prompts the user to provide your application access to their current account. This method is specified by [EIP-1102](https://eips.ethereum.org/EIPS/eip-1102).
 
 #### Params
 
-`eth_requestAccounts` does not require any parameters.
+`quai_requestAccounts` does not require any parameters.
 
 #### Example
 
 ```js
 const requestAccounts = async () => {
 	await window.ethereum
-		.request({ method: 'eth_requestAccounts' })
+		.request({ method: 'quai_requestAccounts' })
 		.then((accounts) => {
 			console.log('Accounts:', accounts)
 		})
@@ -55,28 +59,28 @@ const requestAccounts = async () => {
 
 #### Return
 
-If the user accepts the request, `eth_requestAccounts` returns an array of hexidecmimal address strings. If the user rejects the request, the method rejects and returns a `4001` error.
+If the user accepts the request, `quai_requestAccounts` returns an array of hexidecmimal address strings. If the user rejects the request, the method rejects and returns a `4001` error.
 
-An example of a return value from the [`eth_requestAccounts`] method:
+An example of a return value from the [`quai_requestAccounts`] method:
 
 ```
 ['0x5a62de2c3f3803b3407cabc24e296d91cf977566']
 ```
 
-### eth_accounts
+### quai_accounts
 
-`eth_accounts` returns an array of addresses owned by the user **without initatiting an extension pop-up**. This method is also specified by [EIP-1102](https://eips.ethereum.org/EIPS/eip-1102).
+`quai_accounts` returns an array of addresses owned by the user **without initatiting an extension pop-up**. This method is also specified by [EIP-1102](https://eips.ethereum.org/EIPS/eip-1102).
 
 #### Params
 
-`eth_accounts` does not require any parameters.
+`quai_accounts` does not require any parameters.
 
 #### Example
 
 ```js
 const getAccounts = async () => {
 	await window.ethereum
-		.request({ method: 'eth_accounts' })
+		.request({ method: 'quai_accounts' })
 		.then((accounts) => {
 			console.log('Accounts:', accounts)
 		})
@@ -88,15 +92,15 @@ const getAccounts = async () => {
 
 #### Return
 
-If the user _has allowed_ the application to access their accounts, `eth_accounts` returns an array of hexidecmimal address strings. If the user _has not allowed_ the application to access their accounts, the method returns an empty array.
+If the user _has allowed_ the application to access their accounts, `quai_accounts` returns an array of hexidecmimal address strings. If the user _has not allowed_ the application to access their accounts, the method returns an empty array.
 
-### eth_sendTransaction
+### quai_sendTransaction
 
-The `eth_sendTransaction` is used to sign and broadcast a transaction with an arbitrary value or data payload via an extension pop-up.
+The `quai_sendTransaction` is used to sign and broadcast a transaction with an arbitrary value or data payload via an extension pop-up.
 
 #### Params
 
-The `eth_sendTransaction` method accepts the following parameters:
+The `quai_sendTransaction` method accepts the following parameters:
 
 - `from`: _string_ - The address for the sending account.
 - `to`: _string_ - The address for the receiving account. Required except during contract publications.
@@ -107,7 +111,7 @@ The `eth_sendTransaction` method accepts the following parameters:
 - `data`: _string_ - Data to be included in the transaction. This is typically utilized for interacting with or creating smart contracts. (**Optional**)
 
 :::tip
-All data passed to the `eth_sendTransaction` method as a parameter must be a **hexadecimal string**.
+All data passed to the `quai_sendTransaction` method as a parameter must be a **hexadecimal string**.
 :::
 
 #### Example
@@ -116,7 +120,7 @@ All data passed to the `eth_sendTransaction` method as a parameter must be a **h
 const sendTransaction = async () => {
 	await window.ethereum
 		.request({
-			method: 'eth_sendTransaction',
+			method: 'quai_sendTransaction',
 			params: [
 				{
 					from: '0xb60e8dd61c5d32be8058bb8eb970870f07233155',
@@ -141,7 +145,7 @@ const sendTransaction = async () => {
 
 #### Return
 
-`eth_sendTransaction` returns a promise that resolves to a transaction hash hexadecimal string upon success.
+`quai_sendTransaction` returns a promise that resolves to a transaction hash hexadecimal string upon success.
 
 ### personal_sign
 
@@ -182,13 +186,13 @@ const signMessage = async () => {
 
 `personal_sign` returns a promise that resolves to the signature's hexadecimal string.
 
-### eth_signTypedData_v4
+### quai_signTypedData_v4
 
-The `eth_signTypedData_v4` requests the user to sign more complex, structured data using via an extension pop-up.
+The `quai_signTypedData_v4` requests the user to sign more complex, structured data using via an extension pop-up.
 
 #### Params
 
-The `eth_signTypedData_v4` method accepts the following parameters:
+The `quai_signTypedData_v4` method accepts the following parameters:
 
 - `signer`: _string_ - The address to sign with.
 - `typedData`: _object_ - The data to sign.
@@ -271,7 +275,7 @@ const signTypedData = async () => {
 	}
 	await window.ethereum
 		.request({
-			method: 'eth_signTypedData_v4',
+			method: 'quai_signTypedData_v4',
 			params: ['0x91344f319b4658f9f9fd3fbfb3f560e55e2a72de', typedData],
 		})
 		.then((signature) => {
@@ -287,58 +291,4 @@ const signTypedData = async () => {
 
 #### Return
 
-`eth_signTypedData_v4` returns a promise that resolves to the signature's hexadecimal string.
-
-### eth_chainId
-
-The `eth_chainId` method returns the current chain ID.
-
-#### Params
-
-`eth_chainId` does not require any parameters.
-
-#### Example
-
-```js
-const getChainId = async () => {
-	await window.ethereum
-		.request({ method: 'eth_chainId' })
-		.then((chainId) => {
-			console.log('Chain ID:', chainId)
-		})
-		.catch((error) => {
-			console.error(error)
-		})
-}
-```
-
-#### Return
-
-`eth_chainId` returns a promise that resolves to the integer chain ID.
-
-### net_version
-
-The `net_version` method returns the current network ID.
-
-#### Params
-
-`net_version` does not require any parameters.
-
-#### Example
-
-```js
-const getNetworkId = async () => {
-	await window.ethereum
-		.request({ method: 'net_version' })
-		.then((networkId) => {
-			console.log('Network ID:', networkId)
-		})
-		.catch((error) => {
-			console.error(error)
-		})
-}
-```
-
-#### Return
-
-`net_version` returns a promise that resolves to the integer network ID.
+`quai_signTypedData_v4` returns a promise that resolves to the signature's hexadecimal string.

@@ -9,7 +9,7 @@ Quai Network has two different transactions types:
 - **Internal Transactions** - Transactions with the sender and recipient on the same shard.
 - **External Transactions** - Transactions from one shard to another.
 
-Pelagus natively supports both types with the [`eth_sendTransaction`](../api/json-rpc-api.md#eth_sendtransaction) method. 
+Pelagus natively supports both types with the [`quai_sendTransaction`](../api/json-rpc-api.md#quai_sendtransaction) method. 
 
 Internal and external transactions do **require different amounts of gas** for completion as external transactions must provide gas for *inclusion on both the origin and destination chain*. Pelagus will automatically calculate the gas required for the transaction based on the type of transaction being sent if no gas specifications are provided in the transaction call. 
 
@@ -24,7 +24,7 @@ export default const TransactionButton = () => {
 	const sendTransaction = async () => {
 		await window.ethereum
             .request({
-                method: 'eth_sendTransaction',
+                method: 'quai_sendTransaction',
                 params: [
                     from: accounts[0], // The user's address
                     to: "0x09E0Fb5874EA3FD83b3B48af2dC8FeD9ae375D1a", // required except during contract publications.
