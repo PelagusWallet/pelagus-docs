@@ -1,8 +1,8 @@
 // @ts-check
 
-const { themes } = require('prism-react-renderer')
-const lightTheme = themes.github
-const darkTheme = themes.dracula
+const { themes } = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -99,10 +99,6 @@ const config = {
 				disableSwitch: false,
 				respectPrefersColorScheme: true,
 			},
-			announcementBar: {
-				content:
-					'If you like Pelagus, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/PelagusWallet/pelagus-extension">GitHub</a>!',
-			},
 			footer: {
 				style: 'dark',
 				links: [
@@ -186,6 +182,6 @@ const config = {
 				darkTheme: darkTheme,
 			},
 		},
-}
+};
 
-module.exports = config
+module.exports = config;
