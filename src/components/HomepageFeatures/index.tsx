@@ -13,7 +13,7 @@ const FeatureList: CardItem[] = [
 	},
 	{
 		title: 'Quai Native',
-		link: 'https://qu.ai/docs/',
+		link: 'https://docs.qu.ai',
 		description: (
 			<>
 				The Pelagus Wallet extension has been designed specifically for use on Quai Network's unique
