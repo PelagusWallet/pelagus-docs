@@ -1,8 +1,8 @@
 // @ts-check
 
-const { themes } = require('prism-react-renderer');
-const lightTheme = themes.github;
-const darkTheme = themes.dracula;
+const { themes } = require('prism-react-renderer')
+const lightTheme = themes.github
+const darkTheme = themes.dracula
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -20,7 +20,7 @@ const config = {
 		defaultLocale: 'en',
 		locales: ['en'],
 	},
-
+	plugins: ['./src/plugins/intercom.js'],
 	presets: [
 		[
 			'classic',
@@ -182,6 +182,6 @@ const config = {
 				darkTheme: darkTheme,
 			},
 		},
-};
+}
 
-module.exports = config;
+module.exports = config
