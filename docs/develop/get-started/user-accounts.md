@@ -21,18 +21,18 @@ Pelagus has two methods of requesting user accounts:
 
 ## Handling Accounts
 
-Pelagus will always return an array that contains the address of the shard the user is currently connected with. Because Pelagus returns no information regarding the shard that the address maps to, it can be useful to import the `getShardFromAddress` method from the [`quais`](https://www.npmjs.com/package/quais) SDK in order to derive the shard the address is on.
+ Pelagus does not returns any information regarding the zone that a user's connected address address maps to. To determine which zone a user is on it can be useful to use the `getZoneFromAddress` method from the [`quais`](https://www.npmjs.com/package/quais) SDK in order to differentiate which zone the address is on.
 
-An example of address shard determination:
+An example of address zone determination:
 
 ```js title="requestAccounts.js"
-import { getShardFromAddress } from 'quais/lib/utils'
+import { quais } from 'quais'
 
 export const requestAccounts = async () => {
-	await window.ethereum
+	await window.pelagus
 		.request({ method: 'quai_requestAccounts' })
 		.then((accounts) => {
-			const shard = getShardFromAddress(accounts[0])
+			const zone = quais.getZoneFromAddress(accounts[0])
 			const address = {
 				shard: shard,
 				address: accounts[0],

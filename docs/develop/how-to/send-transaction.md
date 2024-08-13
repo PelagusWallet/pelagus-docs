@@ -22,7 +22,7 @@ Transactions should be initiated upon a direct user action, such as clicking a b
 ```js title="TransactionButton.jsx"
 export default const TransactionButton = () => {
 	const sendTransaction = async () => {
-		await window.ethereum
+		await window.pelagus
             .request({
                 method: 'quai_sendTransaction',
                 params: [
