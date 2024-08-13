@@ -4,7 +4,7 @@ title: JSON-RPC API
 description: Reference for the Pelagus JSON-RPC API.
 ---
 
-Pelagus uses the [`window.ethereum.request(args)`](quai-provider.md#windowethereumrequestargs) method to wrap a JSON-RPC API. The API contains both the standard Quai JSON-RPC API methods Pelagus specific methods. The API is exposed to the browser via the `window.ethereum` object.
+Pelagus uses the [`window.pelagus.request(args)`](quai-provider.md#windowpelagusrequestargs) method to wrap a JSON-RPC API. The API contains both the standard Quai JSON-RPC API methods Pelagus specific methods. The API is exposed to the browser via the `window.pelagus` object.
 
 ## Methods
 
@@ -16,13 +16,13 @@ Pelagus supports the following Pelagus specific API methods:
 - [personal_sign](#personal_sign)
 - [quai_signTypedData_v4](#quai_signtypeddata_v4)
 
-Pelagus also supports most standard Quai JSON-RPC API methods. For a full list of supported methods, see the [Quai JSON-RPC API documentation](https://docs.quai.network/develop/apis/json-rpc). Relevant supported methods include:
+Pelagus also supports most standard Quai JSON-RPC API methods. For a full list of supported methods, see the [Quai JSON-RPC API documentation](https://docs.qu.ai/build/playground/overview). Relevant supported methods include:
 
-- [quai_chainId](https://docs.quai.network/develop/apis/json-rpc#quai_chainid)
-- [quai_getBalance](https://docs.quai.network/develop/apis/json-rpc#quai_getbalance)
-- [quai_getTransactionCount](https://docs.quai.network/develop/apis/json-rpc#quai_gettransactioncount)
-- [quai_getBlockByNumber](https://docs.quai.network/develop/apis/json-rpc#quai_getblockbynumber)
-- [quai_getBlockByHash](https://docs.quai.network/develop/apis/json-rpc#quai_getblockbyhash)
+- [quai_chainId](https://docs.qu.ai/build/playground/other/chainId)
+- [quai_getBalance](https://docs.qu.ai/build/playground/addresses/getBalance)
+- [quai_getTransactionCount](https://docs.qu.ai/build/playground/addresses/getTransactionCount)
+- [quai_getBlockByNumber](https://docs.qu.ai/build/playground/blocks/getBlockByNumber)
+- [quai_getBlockByHash](https://docs.qu.ai/build/playground/blocks/getBlockByHash)
 
 :::tip
 **RPC method requests may return an error**.
@@ -41,7 +41,7 @@ The `quai_requestAccounts` method **initiates an extension pop-up** that prompts
 
 ```js
 const requestAccounts = async () => {
-	await window.ethereum
+	await window.pelagus
 		.request({ method: 'quai_requestAccounts' })
 		.then((accounts) => {
 			console.log('Accounts:', accounts)
@@ -64,7 +64,7 @@ If the user accepts the request, `quai_requestAccounts` returns an array of hexi
 An example of a return value from the [`quai_requestAccounts`] method:
 
 ```
-['0x5a62de2c3f3803b3407cabc24e296d91cf977566']
+['0x002F4783248e2D6FF1aa6482A8C0D7a76de3C329']
 ```
 
 ### quai_accounts
@@ -79,7 +79,7 @@ An example of a return value from the [`quai_requestAccounts`] method:
 
 ```js
 const getAccounts = async () => {
-	await window.ethereum
+	await window.pelagus
 		.request({ method: 'quai_accounts' })
 		.then((accounts) => {
 			console.log('Accounts:', accounts)
@@ -118,13 +118,13 @@ All data passed to the `quai_sendTransaction` method as a parameter must be a **
 
 ```js
 const sendTransaction = async () => {
-	await window.ethereum
+	await window.pelagus
 		.request({
 			method: 'quai_sendTransaction',
 			params: [
 				{
-					from: '0xb60e8dd61c5d32be8058bb8eb970870f07233155',
-					to: '0xd46e8dd67c5d32be8058bb8eb970870f07244567',
+					from: '0x002F4783248e2D6FF1aa6482A8C0D7a76de3C329',
+					to: '0x005f644097F8f0E9f996Dca4F4F23aBB6C1Cc8b3',
 					gas: '0x5208',
 					maxFeePerGas: '0x9184e72a000',
 					maxPriorityFeePerGas: '0x9184e72a000',
@@ -164,9 +164,9 @@ The `personal_sign` method accepts the following parameters:
 const signMessage = async () => {
 	const data = 'Hello Pelagus'
 	const msg = `0x${Buffer.from(data, 'utf8').toString('hex')}`
-	const signer = '0x06BeDcD422F569735D02293083deFf4B366990fe'
+	const signer = '0x005f644097F8f0E9f996Dca4F4F23aBB6C1Cc8b3'
 
-	await window.ethereum
+	await window.pelagus
 		.request({
 			method: 'personal_sign',
 			params: [data, signer],
@@ -259,24 +259,24 @@ const signTypedData = async () => {
 			name: 'Pelagus Messaging Service',
 			version: '1',
 			chainId: 9000,
-			verifyingContract: '0xa8f7c27264699b489018aadce60436a80781e6da',
+			verifyingContract: '0x0063Cb948Dc92d8B7637ECDfCC7e33580A6c046b',
 		},
 		message: {
 			from: {
 				name: 'Alice',
-				wallet: '0x91344f319b4658f9f9fd3fbfb3f560e55e2a72de',
+				wallet: '0x00735E9B2c731Fd3eCC8129a3653ACb99dF969cC',
 			},
 			to: {
 				name: 'Bob',
-				wallet: '0xa844d9a88331e9688d3065f92c11e25ab1e50aa6',
+				wallet: '0x005f644097F8f0E9f996Dca4F4F23aBB6C1Cc8b3',
 			},
 			contents: 'Howdy there, Bob!',
 		},
 	}
-	await window.ethereum
+	await window.pelagus
 		.request({
 			method: 'quai_signTypedData_v4',
-			params: ['0x91344f319b4658f9f9fd3fbfb3f560e55e2a72de', typedData],
+			params: ['0x00735E9B2c731Fd3eCC8129a3653ACb99dF969cC', typedData],
 		})
 		.then((signature) => {
 			// if the request succeeds, the promise resolves to the signature hexadecimal string

@@ -5,7 +5,7 @@ title: Install Pelagus
 
 ## Installation
 
-Pelagus wallet can be downloaded from the [Chrome Web Store](https://chrome.google.com/webstore/detail/pelagus/gaegollnpijhedifeeeepdoffkgfcmbc). The extension is supported on all Chromium-based browsers, including Brave, Opera, and Microsoft Edge.
+Pelagus wallet can be downloaded from the [Chrome Web Store](https://chromewebstore.google.com/detail/pelagus/nhccebmfjcbhghphpclcfdkkekheegop). The extension is supported on all Chromium-based browsers, including Brave, Opera, and Microsoft Edge.
 
 <p align="center">
 
