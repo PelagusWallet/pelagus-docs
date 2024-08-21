@@ -33,6 +33,10 @@ If the value returned is not a `PelagusWindowProvider`, then Pelagus is not pres
 
 Inside of your application, you may want to differentiate between Pelagus and other Quai-based wallets. Verify that the provider is Pelagus by accessing the `window.pelagus` object.
 
+:::warning
+Pelagus will only inject the `window.pelagus` object for production applications using `https`. If your application is using `http`, the `window.pelagus` object will only be present in development environments.
+:::
+
 ```js
 function detectPelagus() {
 	if (window.pelagus) {
