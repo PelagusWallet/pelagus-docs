@@ -1,0 +1,3 @@
+pelagusDocs:
+  env: "quai-prod"
+  cloud: true
