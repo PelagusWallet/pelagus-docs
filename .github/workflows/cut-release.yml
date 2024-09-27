@@ -15,7 +15,7 @@ jobs:
       needs_docker: true
       install_command: "npm ci"
       cloud_deploy: true
-      skip_deploy: false
+      skip_deploy: true
       env: "quai-sandbox"
       gcp_project_id: "flash-gasket-349320"
       token_secret_name: "gke-sandbox-token"
