@@ -1,0 +1,15 @@
+{{- $name := include "pelagus-docs.name" . -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $name }}
+  namespace: {{ .Values.pelagusDocs.env }}
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: {{ $name }}
+  type: NodePort
