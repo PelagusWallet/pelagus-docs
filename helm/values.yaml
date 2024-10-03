@@ -1,6 +1,6 @@
 pelagusDocs:
   image:
     name: quainetwork/pelagus-docs
-    version: v0.2.0-pre
+    version: v0.2.0
   env: quai-dev
   replicas: 1
